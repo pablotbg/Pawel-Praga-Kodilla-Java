@@ -39,7 +39,7 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(triangle);
 
             //Then
-            Assertions.assertEquals(3, list.size());
+            Assertions.assertEquals(3, shapeCollector.list.size());
         }
 
         @Test
@@ -82,8 +82,6 @@ public class ShapeCollectorTestSuite {
             //When
             int figure = shapeCollector.getFigure(1);
 
-
-
             //Then
             Assertions.assertEquals(1, figure);
         }
@@ -92,13 +90,13 @@ public class ShapeCollectorTestSuite {
         void testShowFigures() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            List<Shape> list = new ArrayList<>();
             Shape square = new Square("Square");
             Shape circle = new Circle("Circle");
             Shape triangle = new Triangle("Triangle");
-            list.add(square);
-            list.add(circle);
-            list.add(triangle);
+            shapeCollector.addFigure(square);
+            shapeCollector.addFigure(circle);
+            shapeCollector.addFigure(triangle);
+
 
             //When
             String expected = "[Shape: Square, Shape: Circle, Shape: Triangle]";
