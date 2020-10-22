@@ -1,19 +1,25 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
+
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to module 7 - Stream");
 
-        //7.1 Lambda expression - Stream
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("How are You", (str) -> str.toUpperCase());
-        poemBeautifier.beautify("main name is anaa avans", (str)
-                -> str.replaceAll("a", "A"));
-        poemBeautifier.beautify("Hello, nice to meet you.", (str)
-                -> "ABC " + str + " ABC");
-        poemBeautifier.beautify("I'm ready to party", (str)
-                -> str.concat(" -;)"));
+        Forum forum = new Forum();
+        Map<Integer, ForumUser> theResultUserList = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getYearOfBirthDate() < 2000)
+                .filter(forumUser -> forumUser.getNumberOfPosts() > 0)
+                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
+
+            System.out.println("# elements: " + theResultUserList.size());
+            theResultUserList.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
     }
 }
