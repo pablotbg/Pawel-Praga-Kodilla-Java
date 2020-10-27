@@ -1,6 +1,6 @@
 package com.kodilla.stream.array;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class ArrayOperationsTestSuite {
