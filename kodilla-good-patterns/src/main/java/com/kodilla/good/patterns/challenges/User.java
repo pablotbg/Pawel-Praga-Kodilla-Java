@@ -36,6 +36,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User: " + name + ", " + adress;
+        return name + " in " + adress;
     }
 }

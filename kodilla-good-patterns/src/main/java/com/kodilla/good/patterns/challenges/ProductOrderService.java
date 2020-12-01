@@ -2,13 +2,11 @@ package com.kodilla.good.patterns.challenges;
 
 public class ProductOrderService implements OrderService {
 
-    public boolean productOrder (final UserBuyer userBuyer, final UserSeller userSeller, final Product product,
-                                 final Supplier supplier) {
+    public boolean productOrder(OrderRequest orderRequest) {
 
-        System.out.println("NewOrder: " + userBuyer.getName() + " " + userBuyer.getSurname() + " from "
-                + userBuyer.getAdress() + " order from " + userSeller.getName() + " in " + userSeller.getAdress()
-                + " product " + product.getName() + " chosing delivery via "
-                + supplier.getSupplier());
+        System.out.println("Information: order to User " + orderRequest.getUserBuyer()
+                + " from user " + orderRequest.getUserSeller() + " was realized. Product "
+                + orderRequest.getProduct() + " will be delivery via " + orderRequest.getSupplier());
         return true;
     }
 }

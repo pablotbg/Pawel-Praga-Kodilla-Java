@@ -2,24 +2,14 @@ package com.kodilla.good.patterns.challenges;
 
 public class Product {
 
-    private String name;
-    private String model;
+    private final String name;
 
     public Product(final String name) {
         this.name = name;
     }
 
-    public Product(final String name, final String model) {
-        this.name = name;
-        this.model = model;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public String getModel() {
-        return model;
     }
 
     @Override
@@ -27,19 +17,16 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        if (getName() != null ? !getName().equals(product.getName()) : product.getName() != null) return false;
-        return getModel() != null ? getModel().equals(product.getModel()) : product.getModel() == null;
+        return getName() != null ? getName().equals(product.getName()) : product.getName() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
-        result = 31 * result + (getModel() != null ? getModel().hashCode() : 0);
-        return result;
+        return getName() != null ? getName().hashCode() : 0;
     }
 
     @Override
     public String toString() {
-        return "Product: " + name + ". Model: " + model;
+        return name;
     }
 }
