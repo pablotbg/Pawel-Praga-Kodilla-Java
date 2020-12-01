@@ -6,7 +6,7 @@ public class ExtraFoodShopOrderService implements OrderService {
 
     @Override
     public boolean process(User user, Map<String, Integer> productDelicacies) {
-        System.out.println("Order amazing delicacies.");
+        System.out.println("Process. Order amazing delicacies.");
         return true;
     }
 }

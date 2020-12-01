@@ -2,8 +2,8 @@ package com.kodilla.good.patterns.food2door;
 
 public class OrderDto {
 
-    public User user;
-    public boolean isOrder;
+    public final User user;
+    public final boolean isOrder;
 
     public OrderDto(final User user, final boolean isOrder) {
         this.user = user;

@@ -4,8 +4,8 @@ import java.util.Map;
 
 public class OrderRequest {
 
-    private User user;
-    private Map<String, Integer> products;
+    private final User user;
+    private final Map<String, Integer> products;
 
     public OrderRequest(final User user, final Map<String, Integer> products) {
         this.user = user;
