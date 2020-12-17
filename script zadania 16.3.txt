@@ -1,0 +1,46 @@
+create table ISSUESLISTS
+(
+ID serial primary key,
+NAME varchar(100) charset utf8
+);
+
+create table ISSUES
+(
+ID serial primary key,
+ISSUESLIST_ID bigint unsigned not null,
+SUMMARY varchar(100) charset utf8,
+DESCRIPTION varchar(300) charset utf8,
+USER_ID_ASSIGNEDTO bigint unsigned not null,
+foreign key (ISSUESLIST_ID) references ISSUESLISTS(ID),
+foreign key (USER_ID_ASSIGNEDTO) references USERS(ID)
+);
+
+insert into ISSUESLISTS (NAME) values ("ToDo");
+insert into ISSUESLISTS (NAME) values ("In progress");
+insert into ISSUESLISTS (NAME) values ("Done");
+
+commit;
+
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (1, "Buy", "Buy a milk.", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (1, "Buy", "Buy a bred.", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (1, "Buy", "Buy a sugar.", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (1, "Read", "Read a newspaper.", 2);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (1, "Walk", "Walk to shop.", 3);
+
+commit;
+
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (2, "Walking", "I Walko to school.", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (2, "Reading", "I read book.", 3);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (2, "Buying", "I buy a videogame.", 4);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (2, "Homework", "I wash a socks.", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (1, "Buying", "i buy a milk.", 1);
+
+commit;
+
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (3, "Read", "I stop to read a book.", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (3, "Walk", "I came back from shopping.", 3);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (3, "Buy", "I did not make purchases", 4);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (3, "Homework", "I cleaned a room", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (3, "Buy", "I bought ale the item on the lists", 1);
+
+commit;
