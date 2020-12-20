@@ -1,7 +1,6 @@
 package com.kodilla.patterns.builder.bigmac;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public final class Bigmac {
@@ -49,12 +48,12 @@ public final class Bigmac {
         this.ingredients = new ArrayList<>(ingredients);
     }
 
-    public Bigmac(final String bun, final String burgers, final String sauce, final String... ingredients) {
-        this.bun = bun;
-        this.burgers = burgers;
-        this.sauce = sauce;
-        this.ingredients.addAll(Arrays.asList(ingredients));
-    }
+//    public Bigmac(final String bun, final String burgers, final String sauce, final String... ingredients) {
+//        this.bun = bun;
+//        this.burgers = burgers;
+//        this.sauce = sauce;
+//        this.ingredients.addAll(Arrays.asList(ingredients));
+//    }
 
     public String getBun() {
         return bun;
