@@ -27,7 +27,7 @@ public class Product {
         return id;
     }
 
-    @Column(name = "NAME")
+    @Column(name = "PRODUCT_NAME")
     public String getName() {
         return name;
     }

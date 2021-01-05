@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
@@ -25,10 +26,10 @@ public class InvoiceDaoTestSuite {
         Product eggs = new Product("Eggs");
         Product butter = new Product("Butter");
 
-        Item itemSugar = new Item(sugar, new BigDecimal(2.50), 1, new BigDecimal(2.50));
-        Item itemFlour = new Item(flour, new BigDecimal(2.00), 2, new BigDecimal(4.00));
-        Item itemEggs = new Item(eggs, new BigDecimal(0.50), 6, new BigDecimal(3.00));
-        Item itemButter = new Item(butter, new BigDecimal(5.50), 1, new BigDecimal(5.50));
+        Item itemSugar = new Item(new BigDecimal(2.50), 1, new BigDecimal(2.50));
+        Item itemFlour = new Item(new BigDecimal(2.00), 2, new BigDecimal(4.00));
+        Item itemEggs = new Item(new BigDecimal(0.50), 6, new BigDecimal(3.00));
+        Item itemButter = new Item(new BigDecimal(5.50), 1, new BigDecimal(5.50));
 
         Invoice invoiceOne = new Invoice("Fv0001/2021");
 
@@ -50,9 +51,11 @@ public class InvoiceDaoTestSuite {
         //When
         invoiceDao.save(invoiceOne);
         int invoiceOneId = invoiceOne.getId();
+        int invoiceNumber = invoiceOne.getItems().size();
 
         //Then
         assertNotEquals(0, invoiceOneId);
+        assertEquals(4, invoiceNumber);
 
         //CleanUp
         invoiceDao.deleteById(invoiceOneId);
