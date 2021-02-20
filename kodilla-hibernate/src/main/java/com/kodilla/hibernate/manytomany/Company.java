@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveNameCompanySymbol",
-        query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :THREELETTERS",
+        name = "Company.retrieveCompaniesWithGivenPhraseInName",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE :PHRASE",
         resultClass = Company.class
 )
 
